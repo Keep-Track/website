@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter as Router, Switch, Routes, Route} from 'react-router-dom';
+import { HashRouter as Router, Routes, Link, Route} from 'react-router-dom';
 import Navbar from "./Navbar";
 import Home from "./Home";
 import Assignment from './Assignment';
@@ -8,13 +8,27 @@ import Assignment from './Assignment';
 function App() {
   return (
     <div className="App">
-      <Router>
+         <div>
+            <nav>
+              <ul id="navigation">
+                <li>
+                  <Link to="/">Home</Link>
+                </li>
+                <li>
+                <Link to="/assignment">Assignment</Link>
+                </li>
+              </ul>
+            </nav>
+          </div>
     <Navbar />
-    <Switch>
-        <Route exact path='/' element={<Home />} />
-        <Route path='/assignment' element={<Assignment/>} />
-    </Switch>
-    </Router>
+    <Routes>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/assignment">
+              <Assignment />
+            </Route>
+          </Routes>
     </div>
   );
 }
