@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter as Router, Routes, Route} from 'react-router-dom';
+import { HashRouter as Router, Switch, Routes, Route} from 'react-router-dom';
 import Navbar from "./Navbar";
 import Home from "./Home";
 import Assignment from './Assignment';
@@ -10,10 +10,10 @@ function App() {
     <div className="App">
       <Router>
     <Navbar />
-    <Routes>
+    <Switch>
         <Route exact path='/' element={<Home />} />
         <Route path='/assignment' element={<Assignment/>} />
-    </Routes>
+    </Switch>
     </Router>
     </div>
   );
